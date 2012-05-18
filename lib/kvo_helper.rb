@@ -36,7 +36,7 @@ module KVOHelper
     def observeValueForKeyPath(key_path, ofObject:object, change:change, context:context)
       @observers[key_path].each do |observer|
         if !observer.nil? && observer[:target] == object && !observer[:block].nil?
-          observer[:block].call(object, change["old"], change["new"])
+          observer[:block].call(object, change[NSKeyValueChangeOldKey], change[NSKeyValueChangeNewKey])
         end
       end
     end
