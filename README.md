@@ -71,3 +71,6 @@ class ExampleViewController < UIViewController
 end
 ```
 
+## License
+
+BSD License
