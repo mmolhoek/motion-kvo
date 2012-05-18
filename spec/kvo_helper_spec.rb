@@ -13,11 +13,7 @@ class Example
   def observe_label(&block)
     observe(@label, "text", &block)
   end
-  
-  def observe_old_value_on_label(&block)
-    observe_old(@label, "text", &block)
-  end
-  
+    
   def unobserve_all
     unobserve(@label, "text")
   end
@@ -36,19 +32,11 @@ describe "KVOHelper" do
   
   it "should be able to observe a key path" do
     observed = false
-    @example.observe_label do |label|
+    @example.observe_label do |label, old_value, new_value|
       observed = true
-      label.text.should == "Foo"
-    end
-    @example.label.text = "Foo"
-    observed.should == true
-  end
-  
-  it "should be able to observce a key path for the old value" do
-    observed = false
-    @example.observe_old_value_on_label do |label|
-      observed = true
-      label.text.should == "Bar"
+      @example.label.should == label
+      old_value.should == "Foo"
+      new_value.should == "Bar"
     end
     @example.label.text = "Bar"
     observed.should == true
