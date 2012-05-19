@@ -47,14 +47,14 @@ describe "KVOHelper" do
   
     it "should add an observer block" do
       target = Object.new
-      block = lambda { |obj, old, new_value| }
+      block = lambda { |old_value, new_value| }
       @example.send(:add_observer_block, target, "key_path", &block)
       @example.send(:registered?, target, "key_path").should == true
     end
   
     it "should not add an observer block if the key path is not present" do
       target = Object.new
-      block = lambda { |obj, old, new_value| }
+      block = lambda { |old_value, new_value| }
       @example.send(:add_observer_block, target, nil, &block)
       @example.send(:registered?, target, nil).should == false
     end
@@ -69,7 +69,7 @@ describe "KVOHelper" do
 
     it "should remove an observer block" do
       target = Object.new
-      block = lambda { |obj, old, new_value| }
+      block = lambda { |old_value, new_value| }
       @example.send(:add_observer_block, target, "key_path", &block)
       @example.send(:remove_observer_block, target, "key_path")
       @example.send(:registered?, target, "key_path").should == false
@@ -77,7 +77,7 @@ describe "KVOHelper" do
   
     it "should not remove an observer block if the target is not present" do
       target = Object.new
-      block = lambda { |obj, old, new_value| }
+      block = lambda { |old_value, new_value| }
       @example.send(:add_observer_block, target, "key_path", &block)
       @example.send(:remove_observer_block, nil, "key_path")
       @example.send(:registered?, target, "key_path").should == true
@@ -85,7 +85,7 @@ describe "KVOHelper" do
   
     it "should not remove an observer block if the key path is not present" do
       target = Object.new
-      block = lambda { |obj, old, new_value| }
+      block = lambda { |old_value, new_value| }
       @example.send(:add_observer_block, target, "key_path", &block)
       @example.send(:remove_observer_block, target, nil)
       @example.send(:registered?, target, "key_path").should == true
@@ -93,7 +93,7 @@ describe "KVOHelper" do
   
     it "should remove only one observer block" do
       target = Object.new
-      block = lambda { |obj, old, new_value| }
+      block = lambda { |old_value, new_value| }
       @example.send(:add_observer_block, target, "key_path1", &block)
       @example.send(:add_observer_block, target, "key_path2", &block)
       @example.send(:remove_observer_block, target, "key_path1")
@@ -105,7 +105,7 @@ describe "KVOHelper" do
   
     it "should remove all observer blocks" do
       target = Object.new
-      block = lambda { |obj, old, new_value| }
+      block = lambda { |old_value, new_value| }
       @example.send(:add_observer_block, target, "key_path1", &block)
       @example.send(:add_observer_block, target, "key_path2", &block)
       @example.send(:remove_all_observer_blocks)
@@ -129,9 +129,8 @@ describe "KVOHelper" do
 
     it "should observe a key path" do
       observed = false
-      @example.observe_label do |label, old_value, new_value|
+      @example.observe_label do |old_value, new_value|
         observed = true
-        @example.label.should == label
         old_value.should == "Foo"
         new_value.should == "Bar"
       end
@@ -144,13 +143,13 @@ describe "KVOHelper" do
       observed_one = false
       observed_two = false
       observed_three = false
-      @example.observe_label do |label, old_value, new_value|
+      @example.observe_label do |old_value, new_value|
         observed_one = true
       end
-      @example.observe_label do |label, old_value, new_value|
+      @example.observe_label do |old_value, new_value|
         observed_two = true
       end
-      @example.observe_label do |label, old_value, new_value|
+      @example.observe_label do |old_value, new_value|
         observed_three = true
       end
     
@@ -164,7 +163,7 @@ describe "KVOHelper" do
     
     it "should unobserve a key path" do
       observed = false
-      @example.observe_label do |label, old_value, new_value|
+      @example.observe_label do |old_value, new_value|
         observed = true
       end
       @example.unobserve_label
@@ -178,7 +177,7 @@ describe "KVOHelper" do
 =begin
   it "should be able to observe a collection" do
     observed = false
-    @example.observe_collection do |collection, old_value, new_value, indexes|
+    @example.observe_collection do |old_value, new_value, indexes|
       puts "#{collection} #{old_value} #{new_value} #{indexes}"
       observed = true
     end

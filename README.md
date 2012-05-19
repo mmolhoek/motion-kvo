@@ -40,8 +40,8 @@ class ExampleViewController < UIViewController
 	def viewDidLoad
 		@label = create_ui_label()
 		
-		observe(@label, "text") do |label, old_value, new_value|
-			puts "Changed #{old_value} to #{new_value} on #{label}"
+		observe(@label, "text") do |old_value, new_value|
+			puts "Changed #{old_value} to #{new_value}"
 		end
 	end
 	
@@ -57,13 +57,13 @@ class ExampleViewController < UIViewController
 	def viewDidLoad
 		@label = create_ui_label()
 		
-		observe(@label, "text") do |label, old_value, new_value|
+		observe(@label, "text") do |old_value, new_value|
 			puts "Hello from viewDidLoad!"
 		end		
 	end
 	
 	def viewDidAppear(animated)
-		observe(@label, "text") do |label, old_value, new_value|
+		observe(@label, "text") do |old_value, new_value|
 			puts "Hello from viewDidAppear!"
 		end
 	end
@@ -83,7 +83,7 @@ class ExampleViewController < UIViewController
 		@table_view = create_ui_table_view()
 		@items = [ ]
 		
-		observe(self, "items") do |collection, old_value, new_value, indexes|
+		observe(self, "items") do |old_value, new_value, indexes|
 			@table.reloadData
 		end
 	end
@@ -117,7 +117,7 @@ class ExampleViewController < UIViewController
 	...
 	
 	def viewWillDisappear(animated)
-		remove_all_observers
+		unobserve_all
 	end
 	
 end
@@ -125,4 +125,6 @@ end
 
 ## License
 
-BSD License
+motion-kvo is released under the MIT license:
+
+[http://www.opensource.org/licenses/MIT]

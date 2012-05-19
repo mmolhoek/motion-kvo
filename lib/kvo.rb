@@ -67,7 +67,7 @@ module Dreimannzelt
         blocks.each do |block|
           args = [ change[NSKeyValueChangeOldKey], change[NSKeyValueChangeNewKey] ]
           args << change[NSKeyValueChangeIndexesKey] if collection?(change)
-          block.call(target, *args)
+          block.call(*args)
         end
       end
     
