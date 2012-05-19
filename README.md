@@ -2,8 +2,8 @@
 
 A DSL for easy use of KVO in RubyMotion projects. 
 
-If you like to learn more about the technology behind take a look at the "Key-Value Observing Programming Guide" from Apple:
-	https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html#//apple_ref/doc/uid/10000177i
+If you like to learn more about the technology behind take a look at the [Key-Value Observing Programming Guide](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html#//apple_ref/doc/uid/10000177i) from Apple.
+	
 
 ## Getting started
 
