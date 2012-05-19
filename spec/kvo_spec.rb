@@ -1,5 +1,5 @@
 class Example
-  include KVOHelper
+  include KVO
   
   attr_accessor :label
   attr_accessor :items
