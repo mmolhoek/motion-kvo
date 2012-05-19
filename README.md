@@ -4,7 +4,9 @@ A domain specific language (DSL) for easy use of key-value-observing (KVO) in Ru
 
 If you'd like to learn more about the KVO mechanism on iOS and Mac, take a look at the [Key-Value Observing Programming Guide](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html#//apple_ref/doc/uid/10000177i) by Apple.
 	
-
+```
+	Note: Although the classes of the UIKit framework generally do not support KVO, you can still implement it in the custom objects of your application, including custom views.
+```
 ## Getting started
 
 Add motion-kvo as a git submodule of your RubyMotion project:
