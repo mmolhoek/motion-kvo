@@ -1,8 +1,8 @@
 # Key-Value-Observing for RubyMotion
 
-A DSL for easy use of KVO in RubyMotion projects. 
+A domain specific language (DSL) for easy use of key-value-observing (KVO) in RubyMotion projects. 
 
-If you like to learn more about the technology behind take a look at the [Key-Value Observing Programming Guide](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html#//apple_ref/doc/uid/10000177i) from Apple.
+If you'd like to learn more about the KVO mechanism on iOS and Mac, take a look at the [Key-Value Observing Programming Guide](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html#//apple_ref/doc/uid/10000177i) by Apple.
 	
 
 ## Getting started
