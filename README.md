@@ -127,4 +127,4 @@ end
 
 motion-kvo is released under the MIT license:
 
-[http://www.opensource.org/licenses/MIT]
+http://www.opensource.org/licenses/MIT
