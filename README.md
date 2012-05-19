@@ -23,7 +23,7 @@ Now you can start to add the helper methods to every class you like:
 
 ```ruby
 class ExampleViewController < UIViewController
-	include Dreimannzelt::KVOHelper
+	include Dreimannzelt::KVO
 	
 	...
 end
@@ -35,7 +35,7 @@ To observe a key path of a target you do:
 
 ```ruby
 class ExampleViewController < UIViewController
-	include Dreimannzelt::KVOHelper
+	include Dreimannzelt::KVO
 	
 	def viewDidLoad
 		@label = create_ui_label()
@@ -52,7 +52,7 @@ It's possible to add more than one block to the same key path:
 
 ```ruby
 class ExampleViewController < UIViewController
-	include Dreimannzelt::KVOHelper
+	include Dreimannzelt::KVO
 	
 	def viewDidLoad
 		@label = create_ui_label()
@@ -75,7 +75,7 @@ You can also observe collections (WORK IN PROGRESS):
 
 ```ruby
 class ExampleViewController < UIViewController
-	include Dreimannzelt::KVOHelper
+	include Dreimannzelt::KVO
 	
 	attr_accessor :items
 	
@@ -97,7 +97,7 @@ You are responsible to unregister observers properly. You can unregister one obs
 
 ```ruby
 class ExampleViewController < UIViewController
-	include Dreimannzelt::KVOHelper
+	include Dreimannzelt::KVO
 	
 	...
 	
@@ -112,7 +112,7 @@ or all at once:
 
 ```ruby
 class ExampleViewController < UIViewController
-	include Dreimannzelt::KVOHelper
+	include Dreimannzelt::KVO
 	
 	...
 	
