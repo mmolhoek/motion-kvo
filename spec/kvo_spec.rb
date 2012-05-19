@@ -1,5 +1,5 @@
 class Example
-  include KVO
+  include Dreimannzelt::KVO
   
   attr_accessor :label
   attr_accessor :items
