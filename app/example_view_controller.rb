@@ -55,7 +55,7 @@ class ExampleViewController < UIViewController
   
   # UITextFieldDelegate
   
-  def textField(text_field, shouldChangeCharactersInRange:range, :replacementString:string) 
+  def textField(text_field, shouldChangeCharactersInRange:range, replacementString:string) 
     
     YES
   end
